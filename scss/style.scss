@@ -1,0 +1,191 @@
+@import "vars";
+@import "mixins";
+*{
+    margin: 0;
+    padding: 0;
+    font-family: $text-font;
+}
+button{
+    cursor: pointer;
+}
+
+body{
+    @include Flex(center, center, 40px);
+    flex-direction: column;
+}
+
+header{
+    width: 70%;
+    @include Flex(center, center, 0px);
+    h1{
+        color: #2f2f2f;
+    }
+    border-bottom: 1px solid black;
+}
+
+form {
+    width: 100%;
+    @include Flex(center, stretch, 40px);
+    flex-wrap: wrap;
+    div{
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        label {
+            font-size: 14px;
+        }
+        .place-holder{
+            position: relative;
+            top: -32px;
+            left: 5px;
+            transition: 0.2s ease;
+        }
+        input:valid + .place-holder,
+        input:focus + .place-holder {
+            top: -46px;
+            background-color: white;
+            font-size: 12px;
+            width: 80px;
+            color: rgb(101, 101, 221);
+            text-align: center;
+        }
+        input:focus, input:valid {
+            border-color: rgb(101, 101, 221);
+        }
+        input, select {
+            outline: none;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .none{
+            display: none;
+        }
+    }
+    div:last-child{
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-around;
+        align-items: flex-start;
+        border-radius: 30px;
+        button {
+            width: 70px;
+            border: 1px solid black;
+            padding: 3px;
+            border-radius: 10px;
+        }
+        #add-save {
+            color: rgb(3, 213, 3);
+        }
+        #reset-discard{
+            color: red;
+        }
+    }
+}
+#table{
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width:591px) {
+        padding: 20px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        flex-wrap: wrap;
+        :last-child {
+            border: 1px solid black !important;
+        }
+    }
+    border: 1px solid black;
+    width: 90%;
+    :last-child {
+        border: none !important;
+    }
+    #head{
+        @media only screen and (max-width:591px) {
+        display: none;
+    }
+        background-color: skyblue;
+        border-bottom: 1px solid black;
+        @include Flex(space-between,stretch,0);
+    }
+    #table-body {
+        width: 100%;
+        @include Flex(flex-start,stretch,0);
+        flex-direction: column;
+        @media screen and (max-width: 591px) {
+            flex-direction: row;
+            justify-content: center;
+            width: 95%;
+            flex-wrap: wrap;
+            align-items: stretch;
+            gap: 50px;
+        }
+    }
+    .table-row {
+        @include Flex(space-between,stretch,10px);
+        border-bottom: 1px solid black;
+        @media screen and (max-width: 591px) {
+            width: 300px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid black !important;
+            padding: 20px;
+            .table-cell {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            }
+            .table-cell::before{
+                content: attr(data-label);
+            }
+            .table-cell:last-child{
+                justify-content: space-between;
+            }
+        }
+    }
+    .table-cell {
+        width: 20%;
+        @include Flex(flex-start,center,0px)
+    }
+    .table-cell:last-child{
+        display: flex;
+        justify-content: space-around;
+    }
+}
+.small-buttons-flex {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+}
+#update{
+    color: blue;
+}
+#delete{
+    color: red;
+}
+#prev-next{
+    margin-bottom: 30px;
+    width: 90%;
+    @include Flex(flex-end,center,40px);
+    flex-wrap: wrap;
+    div {
+        padding: 10px;
+        @include Flex(center,center,40px);
+        border-radius: 40px;
+        background-color: #f2f2f2;
+    }
+    #pageNo {
+        display: flex;
+        gap: 10px;
+        a{
+            color: #2f2f2f;
+            text-decoration: none;
+        }
+    }
+}
+i {
+    cursor: pointer;
+}

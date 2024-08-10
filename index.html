@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/scss/style.css" />
+    <link rel="stylesheet" href="assets/font-awesome/css/all.min.css" />
+    <title>Tuple Editor</title>
+  </head>
+  <body>
+    <header>
+      <h1>CRUD OPERATIONS</h1>
+    </header>
+    <form id="form">
+      <div>
+        <input type="text" name="" id="name" required />
+        <label for="name" class="place-holder">Enter Name</label>
+      </div>
+      <div>
+        <input type="number" name="" id="qty" min="1" required />
+        <label for="qty" class="place-holder">Enter Quantity</label>
+      </div>
+      <div>
+        <select name="" id="company" required>
+          <option value="" selected disabled>Select Company</option>
+          <option value="ABC">ABC</option>
+          <option value="XYZ">XYZ</option>
+          <option value="JKL">JKL</option>
+        </select>
+        <label for="company" class="none">Enter Company</label>
+      </div>
+      <div>
+        <input type="text" id="price" required />
+        <label for="price" class="place-holder">Enter Price</label>
+      </div>
+      <div>
+        <input type="date" name="" id="date" required />
+        <label for="date" class="none">Enter Date</label>
+      </div>
+      <div class="btn-group">
+        <button type="submit" id="add-save">
+          Add
+          <i class="fa-solid fa-add"></i>
+        </button>
+        <button type="reset" id="reset-discard">
+          Reset
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    </form>
+    <section id="table">
+      <div id="head" class="table-row">
+        <span class="table-cell">Sr No#</span>
+        <span class="table-cell">Name</span>
+        <span class="table-cell">Quantity</span>
+        <span class="table-cell">Company Name</span>
+        <span class="table-cell">Price</span>
+        <span class="table-cell">Days</span>
+        <span class="table-cell">Actions</span>
+      </div>
+      <div id="table-body"></div>
+    </section>
+    <div id="prev-next">
+      <div>
+        <i id="prev" type="button" class="fa-solid fa-arrow-left"></i>
+        <span id="pageNo"></span>
+        <i id="next" type="button" class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
